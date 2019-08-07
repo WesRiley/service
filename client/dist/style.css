@@ -20,7 +20,7 @@
 }
 
 .negative{
-    margin-left:auto;
+    margin-left: auto;
     margin-right: auto;
     margin-inline-start: 42%;
     margin-inline-end: 100%
@@ -30,7 +30,7 @@
 }
 
 .product{
-    text-align: center
+    /* text-align: center */
 }
 
 .goodReviews{
@@ -47,7 +47,7 @@
 
 .badReviews{
     margin-left:auto;
-    margin-right: 20%;
+    margin-right: auto;
     margin-inline-start: 42%
     /* text-align: justify;
     /* float: right; */

@@ -17,8 +17,8 @@ class App extends React.Component {
         brand: "",
         item: "",
         stars: 0,
-        review: ""
-        
+        review: "",
+        topTen:[]
       };
        
       this.componentDidMount = this.componentDidMount.bind(this)
@@ -29,7 +29,15 @@ class App extends React.Component {
      
       componentDidMount(){
         let users = [];
-        console.log()
+        while(this.state.topTen.length < 10){
+          let min = 0;
+          let max = 99;
+          let num = Math.floor(Math.random() * (max-min)) + min;
+          if(!this.state.topTen.includes(num)){
+            this.state.topTen.push(num)
+          }
+        }
+        
     axios.get('/ratings')
     .then((response) => {
       console.log(response.data,'response')
@@ -88,7 +96,7 @@ class App extends React.Component {
          <p  key='2stars'>2 stars </p> <PercentageBar/>
          <p  key='1stars'>1 stars </p> <PercentageBar/>
          
-        <RatingReviews users={this.state.users} userName={this.state.userName} brand={this.state.brand} item={this.state.item} stars={this.state.stars} review={this.state.review}/>
+        <RatingReviews topTen={this.state.topTen} users={this.state.users} userName={this.state.userName} brand={this.state.brand} item={this.state.item} stars={this.state.stars} review={this.state.review}/>
          {/* <span id='5stars' key='5stars'>5stars <PercentageBar/></span> 
          <span id='4stars' key='4stars'>4stars <PercentageBar/></span> 
          <span id='3stars' key='3stars'>3stars <percentageBar/></span> 
